@@ -20,6 +20,7 @@ namespace annalyns_infiltration;
 public class BirdCount
 {
     private readonly int[] _birdsPerDay;
+    private int temp;
 
     public BirdCount(int[] birdsPerDay)
     {
@@ -104,7 +105,12 @@ public class BirdCount
     {
         // TODO: Implement the 'CountForFirstDays()' method
         //throw new NotImplementedException("Please implement the BirdCount.CountForFirstDays() method");
-        
+        for(int i = 0; i < numberOfDays; i++)
+        {
+            temp = _birdsPerDay[i] + temp;
+        }
+
+        return temp;
 
     }
     /// <summary>
@@ -117,7 +123,16 @@ public class BirdCount
     public int BusyDays()
     {
         // TODO: Implement the 'BusyDays()' method
-        throw new NotImplementedException("Please implement the BirdCount.BusyDays() method");
+        //throw new NotImplementedException("Please implement the BirdCount.BusyDays() method");
+        for(int i = 0; i < _birdsPerDay.Length; i++)
+        {
+            if (_birdsPerDay[i] >= 5)
+            {
+                temp++;
+            }
+        }
+        return temp;
+
     }
 
 }
