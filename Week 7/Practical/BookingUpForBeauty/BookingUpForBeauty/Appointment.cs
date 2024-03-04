@@ -22,7 +22,7 @@ namespace BookingUpForBeauty
 {
     public static class Appointment
     {
-
+        
         /// <summary>
         /// The <c>Schedule</c> method parses a textual representation of an appointment date into 
         /// the corresponding DateTime format:
@@ -36,7 +36,14 @@ namespace BookingUpForBeauty
         public static DateTime Schedule(string appointmentDateDescription)
         {
             //TODO: Implement the method as described in the document comments. 
-            throw new NotImplementedException("Please implement the (static) Appointment.Schedule() method");
+            //throw new NotImplementedException("Please implement the (static) Appointment.Schedule() method");
+            DateTime dateValue;
+
+            dateValue = DateTime.Parse(appointmentDateDescription);
+            return dateValue;
+
+
+            
         }
 
         /// <summary>
@@ -53,7 +60,14 @@ namespace BookingUpForBeauty
         public static bool HasPassed(DateTime appointmentDate)
         {
             //TODO: Implement the method as described in the document comments. 
-            throw new NotImplementedException("Please implement the (static) Appointment.HasPassed() method");
+            //throw new NotImplementedException("Please implement the (static) Appointment.HasPassed() method");
+
+            if(appointmentDate <  DateTime.Now) {
+                return true;
+            }
+            else return false;
+
+
         }
 
         /// <summary>
@@ -70,7 +84,13 @@ namespace BookingUpForBeauty
         public static bool IsAfternoonAppointment(DateTime appointmentDate)
         {
             //TODO: Implement the method as described in the document comments. 
-            throw new NotImplementedException("Please implement the (static) Appointment.IsAfternoonAppointment() method");
+            //throw new NotImplementedException("Please implement the (static) Appointment.IsAfternoonAppointment() method");
+
+            if (appointmentDate.Hour >= 12 && appointmentDate.Hour < 18)
+            {
+                return true;
+            }
+            else return false;
         }
 
         /// <summary>
@@ -85,8 +105,9 @@ namespace BookingUpForBeauty
         public static string Description(DateTime appointmentDate)
         {
             //TODO: Implement the method as described in the document comments. 
-            throw new NotImplementedException("Please implement the (static) Appointment.Description() method");
+            //throw new NotImplementedException("Please implement the (static) Appointment.Description() method");
             // See: https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
+            return "You have an appointment on " + appointmentDate.ToString("dd/MM/yyyy h:mm:ss tt.", CultureInfo.CreateSpecificCulture("en-US"));
         }
 
         /// <summary>
@@ -99,7 +120,14 @@ namespace BookingUpForBeauty
         public static DateTime AnniversaryDate()
         {
             //TODO: Implement the method as described in the document comments. 
-            throw new NotImplementedException("Please implement the (static) Appointment.AnniversaryDate() method");
+            //throw new NotImplementedException("Please implement the (static) Appointment.AnniversaryDate() method");
+            DateTime current;
+            current = DateTime.Now;
+            DateTime anniversary = new DateTime(current.Year, 9, 15, 0, 0, 0);
+
+            return anniversary;
+
+
         }
     }
 }
